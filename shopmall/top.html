@@ -1,0 +1,53 @@
+<html>
+<head>
+	<title>Mango</title>
+	<style>
+		#hr1 {
+			height: 10px;
+			border: 0;
+			box-shadow: 0 10px 10px -10px #bbb inset;
+			}
+		
+		table {border-collapse:collapse;}
+		th, td {padding : 5px;}
+		
+		a:link {color:black; text-decoration:none;}
+		a:visited {color:black; text-decoration:none;}
+		a:hover {text-decoration:underline;}
+		
+		
+}
+	</style>
+</head>
+<body>
+	<? if (!$UserID) { ?>
+	<table width=1000 border=0 align=center>
+		<tr><td height=30 align=right colspan=4><a href=login.html>로그인</a> | <a href=join1.html>회원가입</a> | <a href=show.php?board=customer>고객센터</a></td></tr>
+
+	<? } else if ($UserID =='admin') {?>
+	<table width=1000 border=0 align=center>
+		<tr><td height=30 align=right colspan=4> 관리자님 | <a href=p-input.php>관리메뉴</a> | <a href=logout.php>로그아웃</a> | <a href=show.php?board=customer>고객센터</a></td></tr>
+	
+	<? } else { ?>
+	<table width=1000 border=0 align=center>
+		<tr><td height=30 align=right colspan=4><a href=mypage.php><? echo $UserName; ?>님</a> | <a href=logout.php>로그아웃</a> | <a href=show.php?board=customer>고객센터</a></td></tr>
+	
+	 <? } ?>
+	 
+	 <tr align=center><td height=90 width=200><a href=index.html><img src=mango.jpg width=216 height=64></a></td>
+		<td><input type=search size=60 placeholder=' 검색어를 입력해주세요' style='width:500px; height:50px; font-size:20px;'></td>
+		<td width=100>관심상품</td><td width=100><a href=showbag.php>장바구니</a></td></tr>
+	</table>
+
+	<table width=1000 border=0 align=center >
+		<tr height=60 align=center><td width=230>CATEGORY</td><td width=110></td>
+		<td width=110><a href=p-list.php?class=1>스킨케어</a></td>
+		<td width=110><a href=p-list.php?class=2>클렌징</a></td>
+		<td width=110><a href=p-list.php?class=3>메이크업</a></td>
+		<td width=110><a href=p-list.php?class=4>바디케어</a></td>
+		<td width=110><a href=p-list.php?class=5>향수/디퓨저</a></td>
+		<td width=110></td></tr>
+	</table>
+	<hr id="hr1">
+</body>
+</html>

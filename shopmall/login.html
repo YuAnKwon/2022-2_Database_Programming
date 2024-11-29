@@ -1,0 +1,36 @@
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<? include ("top.html"); ?>
+
+
+<table border=0 width=600 align=center>
+	<tr height=450><td align=center valign=top>  
+	<table width=600 border=0>
+		<tr><td height=40 align=center><h3><b>로그인</b></h3></td></tr>
+</table>
+
+
+<table border=0 width=600>
+<tr><td>
+	<form method=post action=login.php onsubmit="if(!this.uid.value || !this.upass.value) return false;">
+	<table border=0 width=600>
+        <tr align=center><td colspan=2><input type=text name=uid placeholder=' 아이디를 입력해주세요' style='width:300px; height:40px; font-size:15px; '></td></tr>
+		<tr align=center><td colspan=2><input type=password size=60 name=upass placeholder=' 비밀번호를 입력해주세요' style='width:300px; height:40px; font-size:15px; '></td></tr>	
+		
+		<tr><td align=right width=370><font size=2><a href=findid.php>아이디 찾기</a></font></td>
+			<td align=left><font size=2><a href=findpw.php>비밀번호 찾기</a></font></td></tr>
+		<tr><td height=20></td></tr>
+		<tr><td colspan=2 align=center><input type=submit value="로그인" style='height:40px; width:300px; border: 0; border-radius: 15px; outline: none; font-size:15px;'></td></tr>
+		</form>
+		<form method=post action=join1.html>
+		<tr><td colspan=2 align=center> <input type=submit value="회원가입" style='height:40px; width:300px; border: 0; border-radius: 15px; outline: none; font-size:15px;'></td>
+	</form>
+	</table>
+</td></tr>
+</table>
+
+
+   </td></tr>
+</table>
+  
+<? include ("bottom.html"); ?>

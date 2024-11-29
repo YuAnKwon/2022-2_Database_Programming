@@ -1,0 +1,138 @@
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+
+<style>
+   table {border-collapse:collapse;}
+   th, td {padding : 5px;}
+
+   a:link {color:black; text-decoration: none;}
+   a:visited {color:black; text-decoration: none;}
+	
+	[type="radio"] {
+
+	appearance: none;
+	border: max(2px, 0.1em) solid gray;
+	border-radius: 50%;
+	width: 1.25em;
+	height: 1.25em;
+	}
+	
+	[type="radio"]:checked {border: 0.4em solid tomato;}
+	
+</style>
+
+
+<? include ("top.html"); ?>
+
+
+<table border=0 width=1000 align=center>
+<tr height=1000><td align=center valign=top>  
+
+<script   language='Javascript'>
+	function   id_check() {
+		var id = document.comma.uid.value;
+		let width = 500;
+		let height = 180;
+
+		let left = (window.screen.width / 2)  - (width / 2);
+		let tops = (window.screen.height / 2)  - (height / 2);
+
+		left += window.screenLeft;
+		
+		if (id.length < 5) {
+			window.alert('ID는 5글자 이상 입력해주세요');
+		} else {
+			window.open('id_check.php?id=' + id, 'IDCHECK', `width=${width}, height=${height}, left=${left}, top=${tops}`);
+			}
+		}
+
+	function   go_zip() {
+		let width = 470;
+		let height = 180;
+		let left = (window.screen.width / 2)  - (width / 2);
+		let tops = (window.screen.height / 2)  - (height / 2);
+
+		left += window.screenLeft;
+		window.open('zipcode.php','ZIP',`width=${width}, height=${height}, left=${left}, top=${tops}, scrollbars=yes`);
+	}
+	
+	function selectAll(selectAll)  {
+		const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+		checkboxes.forEach((checkbox) => {
+		checkbox.checked = selectAll.checked})
+	}
+	
+</script>
+
+<form action=register.php method=post name=comma>
+
+<table width=600 border=0>
+<tr><td height=40 align=center><h2><b>회원 가입</b></h2></td></tr>
+</table>
+<?echo("<br>");?>
+<table border=0 width=600>
+ <tr>
+	<td width=180   height=50><font size=3>아이디*</td>
+	<td width=150><input type=text size=10 name=uid style='height:30px; font-size:15px;'></td>
+	<td width=330><a href='javascript:id_check()'>ID중복검사</a></font></td>
+ </tr>
+ <tr height=50>
+	<td width=120><font size=3>비밀번호*</font></td>
+	<td colspan=2><input type=password   maxlength=15 style='height:30px; font-size:15px;' size=20 name=upass1></td>
+ </tr>
+ <tr height=50>
+	<td><font size=3>비밀번호 확인*</font></td>	
+	<td colspan=2><input type=password   maxlength=15 style='height:30px; font-size:15px;' size=20 name=upass2></td>
+ </tr>
+ <tr height=50>
+	<td><font size=3>이름*</font></td>
+	<td  colspan=2 height=50><input type=text size=10 name=uname style='height:30px; font-size:15px;'></td>
+ </tr>
+ <tr height=50>
+	<td><font size=3>휴대전화*</font></td>	
+	<td colspan=2><input type=text size=20 name=mphone style='height:30px; font-size:15px;'></td>
+ </tr>
+ <tr height=50>
+	<td><font size=3>이메일*</td>
+	<td colspan=2><input type=text size=30 name=email style='height:30px; font-size:15px;'></td>
+ </tr>
+ <tr height=50>
+	
+	<td><font size=3>집주소*</td>
+	<td colspan=2><input type=text size=7 name=zip readonly=readonly style='height:30px; font-size:15px;'> [<a href='javascript:go_zip()'>우편번호검색</a>]</font>
+	<br><input type=text size=50 name=addr1 readonly=readonly style='height:30px; font-size:15px;'>
+	<br><input   type=text size=35 name=addr2 style='height:30px; font-size:15px;'></td>
+	</tr>
+	
+ <tr height=50>
+	<td><font size=3>성별*</font></td>	
+	<td colspan=2><input type="radio" name="gender" value="남자" checked><font size=3> 남자
+	<input type="radio" name="gender" value="여자"> 여자
+	<input type="radio" name="gender" value="선택안함"> 선택안함</td>
+	
+ </tr>
+</table>
+  
+
+
+ <hr width=600>
+   <br>
+<table >
+	<tr><td width=150  align=center><font size=4>이용약관 동의*</td>
+		<td width=400><input type='checkbox' name='selectall' value='selectall' onclick='selectAll(this)'/> <b><font size=4>전체 동의합니다.</b></td></tr>
+	<tr ><td></td><td><input type='checkbox' name='agree1'/> <font color=red>(필수)</font> 개인정보 처리방침 동의</td></tr>
+	<tr ><td></td><td><input type='checkbox' name='agree2'/> <font color=red>(필수)</font> 서비스 이용약관 동의</td></tr>
+	<tr ><td></td><td><input type='checkbox' name='agree3'/> <font color=red>(필수)</font> 본인은 만 14세 이상입니다</td></tr>
+</table>  
+  
+<table width=670 border=0>
+<tr><td align=center height=100><input type=submit value="가입하기" style='height:50px; width:350px;border: 0; border-radius: 15px; outline: none; font-size:25px;'></td></tr>
+
+</table>
+</form>
+
+   </td></tr>
+</table>
+
+  
+<? include ("bottom.html"); ?>
